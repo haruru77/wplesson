@@ -61,7 +61,7 @@ h2 {
 /* 横幅 */
 
 .wp-block:not([data-align="full"]):not([data-align="wide"]) {
-    max-width: calc( 720px + 30px);
+    max-width: 720px;
 }
 
 .wp-block[data-align="wide"] {

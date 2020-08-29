@@ -12,10 +12,22 @@
 
     <header class="myhead mycontainer">
         <div class="alignwide">
-        <a href="<?php echo esc_url(home_url('/')); ?>">
-            <?php bloginfo('name'); ?>
-        </a>
+            <a href="<?php echo esc_url(home_url('/')); ?>">
+                <?php bloginfo('name'); ?>
+            </a>
 
-        <p><?php bloginfo( 'description' ); ?></p>
+            <p><?php bloginfo('description'); ?></p>
         </div>
     </header>
+
+    <?php if (has_nav_menu('primary')) : ?>
+        <nav class="mynav">
+            <div class="mycontainer">
+                <div class="alignwide">
+                    <?php wp_nav_menu(array(
+                        'theme_location' => 'primary',
+                    )); ?>
+                </div>
+            </div>
+        </nav>
+    <?php endif; ?>

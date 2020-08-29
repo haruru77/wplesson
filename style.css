@@ -419,3 +419,50 @@ a:hover {
         break-inside: avoid;
     }
 }
+
+
+/* 上下の余白 */
+
+.mymargin {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+
+/* お問い合わせ */
+
+.wpcf7-text,
+.wpcf7-textarea {
+    width: 100%;
+    padding: 10px;
+    border: solid 1px #bbbbbb;
+}
+
+.wpcf7-submit {
+    width: 250px;
+    padding: 10px;
+    border: none;
+    background-color: #ffaa00;
+    -webkit-appearance: none;
+}
+
+
+/* ナビゲーションメニュー */
+
+.mynav {
+    padding: 7px 0;
+    background-image: var(--gradient);
+    color: #ffffff;
+    font-size: var(--f6);
+}
+
+.mynav ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.mynav li:not(:last-child) {
+    margin-right: 1em;
+}

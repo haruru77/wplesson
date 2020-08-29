@@ -27,6 +27,11 @@ function mytheme_setup()
 
     // 全幅・幅広を有効化
     add_theme_support( 'align-wide');
+
+    // メニューのロケーションを登録
+    register_nav_menus( array(
+        'primary' => 'ナビゲーション'
+    ));
 }
 
 add_action('after_setup_theme', 'mytheme_setup');
