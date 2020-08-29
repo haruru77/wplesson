@@ -60,6 +60,10 @@ h2 {
 
 /* 横幅 */
 
-.wp-block {
+.wp-block:not([data-align="full"]):not([data-align="wide"]) {
     max-width: calc( 720px + 30px);
+}
+
+.wp-block[data-align="wide"] {
+    max-width: calc( 1020px + 30px);
 }

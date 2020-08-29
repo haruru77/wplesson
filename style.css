@@ -73,6 +73,8 @@ body *::after {
     /* 基本色 */
     --gradient: linear-gradient( 93.5deg, rgba(34, 126, 34, 1) 10.2%, rgba(99, 162, 17, 1) 87.5%);
     --myfont: 'Josefin Sans', sans-serif;
+    --myw: 720px;
+    /* 標準幅 */
 }
 
 
@@ -127,11 +129,31 @@ body {
     margin-right: 10px;
 }
 
+.alignfull {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
 @media (min-width: 740px) {
     .mycontainer {
-        max-width: 720px;
-        margin-left: auto;
-        margin-right: auto;
+        max-width: none;
+        margin-left: calc( ( 100vw - var(--myw)) / 2);
+        margin-right: calc( ( 100vw - var(--myw)) / 2);
+    }
+    .alignfull {
+        margin-left: calc( ( 100vw - var(--myw)) / 2 * -1);
+        margin-right: calc( ( 100vw - var(--myw)) / 2 * -1);
+    }
+    .alignwide {
+        margin-left: calc( ( 100vw - var(--myw)) / 4 * -1);
+        margin-right: calc( ( 100vw - var(--myw)) / 4 * -1);
+    }
+}
+
+@media (min-width: 1320px) {
+    .alignwide {
+        margin-left: -150px;
+        margin-right: -150px;
     }
 }
 
@@ -142,6 +164,12 @@ body {
     padding-top: 20px;
     padding-bottom: 10px;
     text-align: center;
+}
+
+.myposthead p {
+    color: var(--basecolor);
+    font-family: var(--myfont);
+    font-weight: bold;
 }
 
 
@@ -246,7 +274,7 @@ a:hover {
 
 /* ヘッダー */
 
-.myhead {
+.myhead>div {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -273,4 +301,121 @@ a:hover {
     text-align: center;
     background-image: var(--gradient);
     font-family: var(--myfont);
+}
+
+
+/* 記事一覧 */
+
+.mypostlist {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.mypostlist article {
+    width: 48%;
+    margin-bottom: 20px;
+}
+
+.mypostlist figure {
+    margin: 0;
+}
+
+.mypostlist img {
+    height: 180px;
+    object-fit: cover;
+}
+
+.mypostlist h2 {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-size: var(--f6);
+}
+
+
+/* ページネーション */
+
+.pagination .nav-links {
+    margin-bottom: 50px;
+    justify-content: center;
+}
+
+.pagination .page-numbers:not(:last-child) {
+    margin-right: 15px;
+}
+
+.pagination a {
+    color: var(--basecolor);
+}
+
+.pagination .current {
+    color: #aaaaaa;
+}
+
+
+/* メニュー */
+
+.mymenu {
+    margin-top: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #fbf6e8;
+}
+
+.mymenu h2 {
+    padding: 10px;
+    border: none;
+    background-color: var(--basecolor);
+    color: #ffffff;
+    font-family: var(--myfont);
+    font-size: var(--f5);
+}
+
+.myprofile figure {
+    text-align: center;
+}
+
+.myprofile img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+.myprofile strong {
+    display: block;
+    text-align: center;
+    font-family: var(--myfont);
+}
+
+.myprofile p {
+    font-size: var(--f6)
+}
+
+.widget ul {
+    padding: 0;
+    list-style-type: none;
+    font-size: var(--f6);
+}
+
+.widget li:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+.widget select {
+    width: 100%;
+    height: 40px;
+    border: solid 1px #aaaaaa;
+}
+
+@media (min-width: 740px) {
+    .mymenu-columns {
+        columns: 3;
+        column-gap: 30px;
+    }
+    .mymenu-columns>section {
+        position: relative;
+        overflow: hidden;
+        break-inside: avoid;
+    }
 }
