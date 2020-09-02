@@ -32,6 +32,9 @@ function mytheme_setup()
     register_nav_menus( array(
         'primary' => 'ナビゲーション'
     ));
+
+    // 2段組みを有効化
+    add_theme_support( 'mycols');
 }
 
 add_action('after_setup_theme', 'mytheme_setup');

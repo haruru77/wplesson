@@ -4,6 +4,26 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <?php if (is_single()) : ?>
+        <meta property="og:site_name" content="<?php bloginfo('name'); ?>">
+        <meta property="og:locale" content="ja_jp">
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="<?php the_title(); ?>">
+        <meta property="og:url" content="<?php the_permalink(); ?>">
+        <meta property="og:description" content="<?php echo esc_attr(wp_strip_all_tags(get_the_excerpt())); ?>">
+
+        <?php if (has_post_thumbnail()) : ?>
+            <?php $myimg = get_post_thumbnail_id(); ?>
+            <meta property="og:image" content="<?php echo esc_url(wp_get_attachment_url($myimg)); ?>">
+            <meta property="og:image:width" content="<?php echo esc_attr(wp_get_attachment_metadata($myimg)['width']); ?>">
+            <meta property="og:image:height" content="<?php echo esc_attr(wp_get_attachment_metadata($myimg)['height']); ?>">
+        <?php endif; ?>
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="fb:app_id" content="2736225173370877">
+    <?php endif; ?>
+
     <?php wp_head(); ?>
 </head>
 
@@ -31,3 +51,10 @@
             </div>
         </nav>
     <?php endif; ?>
+
+    <div 
+    <?php if( current_theme_supports( 'mycols' ) && !is_front_page()): ?>
+    class="mycols"
+                <?php endif; ?>
+                >
+    <div class="mycontent">

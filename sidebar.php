@@ -1,3 +1,5 @@
+</div> <!-- mycontent ここまで -->
+
 <aside class="mymenu">
     <div class="mycontainer">
         <div class="alignwide mymenu-columns">
@@ -16,3 +18,5 @@
         </div>
     </div>
 </aside>
+
+</div> <!-- mycols ここまで -->

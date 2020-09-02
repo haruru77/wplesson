@@ -129,9 +129,11 @@ body {
     margin-right: 10px;
 }
 
-.alignfull {
+.mycontainer>.alignfull {
     margin-left: -10px;
     margin-right: -10px;
+    max-width: none;
+    width: auto;
 }
 
 @media (min-width: 740px) {
@@ -140,18 +142,20 @@ body {
         margin-left: calc( ( 100vw - var(--myw)) / 2);
         margin-right: calc( ( 100vw - var(--myw)) / 2);
     }
-    .alignfull {
+    .mycontainer>.alignfull {
         margin-left: calc( ( 100vw - var(--myw)) / 2 * -1);
         margin-right: calc( ( 100vw - var(--myw)) / 2 * -1);
     }
-    .alignwide {
+    .mycontainer>.alignwide {
         margin-left: calc( ( 100vw - var(--myw)) / 4 * -1);
         margin-right: calc( ( 100vw - var(--myw)) / 4 * -1);
+        max-width: none;
+        width: auto;
     }
 }
 
 @media (min-width: 1320px) {
-    .alignwide {
+    .mycontainer>.alignwide {
         margin-left: -150px;
         margin-right: -150px;
     }
@@ -326,11 +330,43 @@ a:hover {
     object-fit: cover;
 }
 
-.mypostlist h2 {
+.mypostlist h2,
+.mypostlist h3 {
     margin: 0;
     padding: 0;
     border: none;
     font-size: var(--f6);
+}
+
+
+/* 関連記事 */
+
+.myrelated {
+    border: solid 2px var(--basecolor);
+    padding: 0 10px;
+}
+
+.myrelated h2 {
+    border-width: 5px;
+    color: var(--basecolor);
+    font-family: var(--myfont);
+    font-size: var(--f5);
+}
+
+.myrelated img {
+    height: 120px;
+}
+
+@media (min-width: 740px) {
+    .myrelated article {
+        width: 24%;
+    }
+    .myrelated .mypostlist {
+        justify-content: flex-start;
+    }
+    .myrelated article:not(:last-child) {
+        margin-right: calc( 4% / 3);
+    }
 }
 
 
@@ -465,4 +501,80 @@ a:hover {
 
 .mynav li:not(:last-child) {
     margin-right: 1em;
+}
+
+
+/* シェアボタン */
+
+.myshare {
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+.myshare h2 {
+    padding: 0;
+    border: none;
+    color: var(--basecolor);
+    font-family: var(--myfont);
+    font-size: var(--f5);
+    text-align: center;
+    line-height: 1.2;
+}
+
+.myshare .mytwitter {
+    color: #1da1f2;
+}
+
+.myshare .myfacebook {
+    color: #3b5998;
+}
+
+.myshare a {
+    width: 49%;
+    padding: 10px;
+    border: solid 1px currentColor;
+    line-height: 1;
+    text-align: center;
+}
+
+
+/* 2段組み */
+
+@media (min-width: 1320px) {
+    .mycols .mycontainer,
+    .mycols .alignwide,
+    .mycols .alignfull {
+        width: auto;
+        max-width: none;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .mycols .mymenu-columns {
+        columns: 1;
+    }
+    .mycols {
+        display: flex;
+        margin: 50px calc( (100vw - 1020px) /2);
+        justify-content: space-between;
+    }
+    .mycols .mycontent {
+        width: 68%;
+    }
+    .mycols .mymenu {
+        width: 26%;
+        margin-top: 0;
+        padding: 10px;
+    }
+}
+
+
+/* カラムブロックのレスポンシブ */
+
+@media (min-width: 600px) and (max-width: 781px) {
+    .myresp {
+        flex-wrap: nowrap;
+    }
+    .myresp>*:not(:first-child) {
+        margin-left: 10px;
+    }
 }
